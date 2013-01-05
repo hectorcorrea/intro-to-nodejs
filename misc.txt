@@ -1,0 +1,2 @@
+Get my IP
+ipconfig getifaddr en0

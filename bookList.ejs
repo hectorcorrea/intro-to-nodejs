@@ -1,0 +1,11 @@
+<h1>Book List</h1>
+
+<ul>
+<% for(i = 0; i<books.length; i++ ) { %>
+  <% var url = "/books/" + (i+1); %>
+  <li>
+    <a href="<%= url %>">
+      <%= books[i].title %>
+    </a>
+<% } %>
+</ul>

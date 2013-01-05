@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<head>
+  <title>AJAX sample</title>
+  <script src="/js/jquery-1.6.2.js"></script>
+</head>
+
+<body> 
+  <p> 
+  <input type="text" id="txtName" placeholder="name"/>
+  <input type="text" id="txtCity" placeholder="city"/>
+  </p>
+  <input id="theButton" type="submit" value="Click Me!"/>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+      $("#theButton").click(function() {
+
+        $.ajax({
+          url: "/js/fakedata.js",
+          dataType: "json",
+          success: function(data) {
+            $("#txtName").val(data.name);
+            $("#txtCity").val(data.city);
+          },
+          error: function(data) {
+            alert("Oops...something went wrong" + data);
+          }
+        });
+
+      });
+
+    });
+  </script>  
+
+</body>
