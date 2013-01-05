@@ -1,2 +1,7 @@
-Get my IP
-ipconfig getifaddr en0
+Slides:
+  Press 'b' to blank the screen
+  Press ESC for slides overview
+
+Get my IP: 
+  ipconfig getifaddr en0
+

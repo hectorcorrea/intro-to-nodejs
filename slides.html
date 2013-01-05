@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="en">
 
+	<!-- 
+	Slides for my introduction to Node.js presentation
+	hector@hectorcorrea.com - January/2013
+
+	Slides created using reveal.js http://lab.hakim.se/reveal-js/#/ 
+	-->
+
 	<head>
 		<meta charset="utf-8">
 
@@ -151,6 +158,16 @@ server.listen(8000, "127.0.0.1");
 				</section>
 
 				<section>
+					<h2>Debugging</h2>
+					<p>Install node-inspector (npm install node-inspector)</p>
+					<p>run app node --debug myapp.js</p>
+					<p>run node-inspector</p>
+					<p>browse to address given by node-inspector</p>
+					<p>select file to browse, set breakpoint</p>
+					<p>browse to your app</p>
+				</section>
+
+				<section>
 					<h2>Ecosystem</h2>
 					<ul>
 						<li>NPM - Node Package Manager
@@ -185,7 +202,7 @@ server.listen(8000, "127.0.0.1");
 
 		</div>
 
-		<script src="lib/js/head.min.js"></script>
+		<script src="js/head.min.js"></script>
 		<script src="js/reveal.min.js"></script>
 
 		<script>
@@ -203,12 +220,12 @@ server.listen(8000, "127.0.0.1");
 
 				// Optional libraries used to extend on reveal.js
 				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					{ src: 'js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'js/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'js/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'js/notes.js', async: true, condition: function() { return !!document.body.classList; } }
 					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
 				]
 			});

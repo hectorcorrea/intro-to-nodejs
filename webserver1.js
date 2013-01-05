@@ -4,9 +4,9 @@ var serverUrl = "localhost";
 
 var server = http.createServer(function(req, res) {
 
-  var now = new Date();
-  console.log("Request received at: " + now);
+  console.log("Request: " + req.url);
   
+  var now = new Date();
   var html = "<p>Hello World, the time is <b>" + now + "</b>.</p>";
   res.end(html);
 
