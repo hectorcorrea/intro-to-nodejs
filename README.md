@@ -7,7 +7,7 @@ Samples
 -------
 List of code samples in the order in which the are introduced during the presentation.
 
-* helloworld.js: Server side JavaScript 
+* helloworld.js: Server side JavaScript (no web stuff)
 
 * webserver1.js: A bare bones web server. Hard coded to always return hello world.
 
@@ -19,7 +19,10 @@ List of code samples in the order in which the are introduced during the present
 
 * chatserver.js: A sample chat server over TCP.
 
-* express1.js: A bare bones Express web site. Handles any static file plus one extra route.
+* express1.js: Express.js site to handle static files.
 
-* express2.js: A bare bones Express web site. Handles any static file plus a couple of views (using EJS.)
+* express2.js: Express.js site to handle routes and HTTP verbs.
 
+* express3.js: Express.js site to handle views.
+
+* express4.js: Express.js site using a database (MongoDB)
