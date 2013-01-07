@@ -3,7 +3,7 @@ console.log("Hello World");
 
 
 // math
-var price = 150;
+var price = 250;
 var tax = 7;
 var total = price + (price * (tax/100));
 console.log("Total $" + total);

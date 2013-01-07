@@ -7,7 +7,7 @@ var server = net.createServer();
 server.on('connection', function(client) {
 
   console.log("Somebody just connected...");
-  client.write("Hi\n");
+  client.write("Hello stranger\n");
 
   client.on('data', function(data) {
     client.write("You said: " + data + "\r\n");

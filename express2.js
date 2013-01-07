@@ -1,44 +1,48 @@
 var express = require('express');
 var app = express();
 
-app.configure(function() {
+// Log all requests
+app.use(express.logger('dev'));
 
-  app.set('views', __dirname);
-  app.set('view engine', 'ejs');
-  
-  app.use(express.logger('dev'));
-  app.use(express.static(__dirname)); 
+// Serve static files
+app.use(express.static(__dirname)); 
 
-  app.use(app.router);
+// Parse request body into req.body.*
+app.use(express.bodyParser());
 
-});
-
-
-// Define some demo data
-var bookList = [];
-bookList.push({title: "Thinking, Fast and Slow", author: "Daniel Kahneman"});
-bookList.push({title: "The Signal and the Noise: Why So Many Predictions Fail — but Some Don't", author: "Nate Silver"});
-
-
-// Render a list of books
+// Route for specific URLs
 app.get('/books', function(req, res){
-  res.render("bookList.ejs", {books: bookList});
+  res.send('A list of books goes here');
 });
 
-
-// Render an individual book
+// A specific book by ID
 app.get('/books/:id', function(req, res){
-  var id = parseInt(req.params.id) - 1;
-  var bookData = bookList[id]; 
-  res.render("bookView.ejs", {book: bookData});
+  var html = "<p>You requested book <b>" + req.params.id + "</b>.</p>"
+  res.send(html);
+});
+
+// Search form (GET)
+app.get("/search", function(req, res) {
+  var html = '<p>' + 
+    '<form id="search" method="post">' + 
+    '  <input type="text" name="searchText"/>' +
+    '  <input type="submit"/>' + 
+    '</form>' + 
+    '</p>';
+  res.send(html)
+});
+
+// Search form (POST)
+app.post("/search", function(req, res) {
+  var searchText = req.body.searchText;
+  res.send("<p>Your search for <b>" + searchText + "</b> returned no results</p>");
 });
 
 
-// Routes for everything else
+// Route for everything else.
 app.get('*', function(req, res){
   res.send('Hello World');
 });
-
 
 // Fire it up!
 app.listen(3000);

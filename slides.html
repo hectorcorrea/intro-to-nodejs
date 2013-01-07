@@ -23,12 +23,14 @@
 		<link rel="stylesheet" href="css/theme/night.css" id="theme">
 
 		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="css/zenburn.css">
+ 		<link rel="stylesheet" href="css/zenburn.css">
 
 		<style type="text/css">
 			.reveal {background: #46483E;}
 			.reveal li {padding-bottom: 20px;}
-		</style>
+			.reveal code {font-size: 25px;}
+/*			.reveal blockquote {font-size: 40px;}
+*/		</style>
 
 	</head>
 
@@ -51,14 +53,13 @@
 				</section>
 
 				<section>
-					<h2>Agenda</h2>
-					<ol>
+					<ul>
 					<li>What is Node.js
-					<li>Web development
-					<li>Ecosystem 
+					<li>Web Development with Node.js
+					<li>Ecosystem (NPM, Express.js, MongoDB, node-inspector)
 					<li>Paradigm (evented I/O, async)
 					<li>Misc (WebSockets, Streams)
-					</ol>	
+					</ul>	
 				</section>
 
 				<section>
@@ -72,6 +73,7 @@
 							installer for Mac OS X is &lt; 8 MB
 						</ul>
 						<p align="left">
+							<br/>
 							<small>1 <a href="http://www.ibm.com/developerworks/opensource/library/os-nodejs/">http://www.ibm.com/developerworks/opensource/library/os-nodejs/</a>
 							</small>
 						</p>
@@ -89,26 +91,27 @@
 				</section>
 
 				<section>
-					<blockquote cite="http://nodejs.org">Node.js uses an <b><i>event-driven, 
-						non-blocking I/O model</i></b> that makes it lightweight and efficient, 
-						perfect for data-intensive real-time applications that run across 
-						distributed devices.
-					</blockquote>
+					<p>"Node.js uses an <b><i>event-driven, non-blocking I/O model</i></b><br/> 
+						that makes it lightweight and efficient,<br/> 
+						perfect for data-intensive real-time applications <br/>
+						that run across distributed devices."
+					</p>
 					<p>
 						<small>Reference <a href="http://nodejs.org">http://nodejs.org</a></small>
 					</p>
 				</section>
 
 				<section>
-					<h2>Blocking vs Non-Blocking</h2>
+					<h3>Blocking</h3>
 					<pre><code contenteditable>
 text = readFile("myfile.txt");
-console.log(text);    // executes AFTER file has been read
+console.log(text);    			
 					</code></pre>
 
+					<h3>Non-Blocking</h3>
 					<pre><code contenteditable>
 readFile("myfile.txt", function(text) {
-  console.log(text);  // executes AFTER file has been read
+  console.log(text);  
 });
 console.log("xxx");   // executes immediately
 					</code></pre>
@@ -159,21 +162,70 @@ server.listen(8000, "127.0.0.1");
 
 				<section>
 					<h2>Debugging</h2>
-					<p>Install node-inspector (npm install node-inspector)</p>
-					<p>run app node --debug myapp.js</p>
-					<p>run node-inspector</p>
-					<p>browse to address given by node-inspector</p>
-					<p>select file to browse, set breakpoint</p>
-					<p>browse to your app</p>
+
+					<p>Node Inspector is a debugger interface for Node.js<br/> 
+						using the WebKit Web Inspector.</p>					
+
+					<pre><code contenteditable>
+# Install node-inspector
+$ npm install -g node-inspector</code></pre>
+
+					<pre><code contenteditable>
+# Run your app
+node --debug app</code></pre>
+					 
+					<pre><code contenteditable>
+#Run node-inspector (in a separate window)
+$ node-inspector</code></pre>
+
+					<p>Browse to address given by node-inspector,<br/>
+					select source file to browse, set breakpoint,<br/> 
+					and browse to your app.</p>
 				</section>
 
 				<section>
-					<h2>Ecosystem</h2>
+					<h2>Node Package Manager</h2>
 					<ul>
-						<li>NPM - Node Package Manager
-						<li>Express.js - Web Application framework
-						<li>CoffeeScript
-						<li>Logging, Testing, DB Access, et cetera
+						<li>Tool to download modules for Node.js
+						<li>Comes bundled with Node.js
+						<li>Over 20,000 modules <a href="https://npmjs.org/">available</a>
+						<li>Express.js, CoffeeScript, Socket.io, View Templates, 
+							Testing, Logging, DB Access, Async, RSS, Forever, Cluster, et cetera
+					</ul>
+
+					<pre><code contenteditable>
+# Usage
+$ npm install someModule</code></pre>
+				</section>
+
+				<section>
+					<h2>Express.js</h2>
+					<ul>
+					<li>An MVC framework to build web applications
+					<li>Provides the plumbing for HTTP, routes, and views
+					<li>No built-in support for models
+					</ul>
+					<pre><code contenteditable>
+# Install Express
+$ npm install express
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Samples</h2>
+					<ul>
+						<li>express1/2.js - routes and views
+						<li>express3.js - database access (MongoDB)
+						<li>Blog web site
+					</ul>
+				</section>
+
+				<section>
+					<h2>Hosting in Production</h2>
+					<ul>
+						<li>Stand alone  
+						<li>Behind another web server (Apache, nginx, IIS)
+						<li>PaaS: Nodejitsu.com, Heroku, AppFog, Azure
 					</ul>
 				</section>
 
@@ -193,7 +245,7 @@ server.listen(8000, "127.0.0.1");
 								Ryan Dahl - History of Node.js</a>
 							(long, informal, but full of good information on how and why Node)
 						<li>Today's samples 
-							<a href="http://github/hectorcorrea/intro-to-node">http://github/hectorcorrea/intro-to-node</a>
+							<a href="http://github/hectorcorrea/intro-to-nodejs">http://github/hectorcorrea/intro-to-nodejs</a>
 						<li>Feel free to ping me hector@hectorcorrea.com
 					</ul>
 				</section>

@@ -2,6 +2,13 @@ Slides:
   Press 'b' to blank the screen
   Press ESC for slides overview
 
+OS X: 
+  alt+command+8 to toggle zoom window on/off
+
+  zoom in: command+option+ -
+  zoom out: command+option+ =
+
+
 Get my IP: 
   ipconfig getifaddr en0
 
