@@ -25,4 +25,6 @@ List of code samples in the order in which the are introduced during the present
 
 * express3.js: Express.js site to handle views.
 
-* express4.js: Express.js site using a database (MongoDB)
+* express4.js: Express.js site using a MongoDB database. References bookRoutes.js and bookModel.js
+
+
