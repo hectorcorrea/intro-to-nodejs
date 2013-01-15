@@ -71,7 +71,6 @@ function getFile(localPath, res, mimeType) {
 
 }
 
-
 console.log("Starting web server at " + serverUrl + ":" + port);
 server.listen(port, serverUrl);
 
