@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var bookRoutes = require('./bookRoutes');
+var bookRoutes = require('./bookRoutes2');
 
 app.configure(function() {
 

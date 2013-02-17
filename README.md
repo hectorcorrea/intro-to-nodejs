@@ -3,6 +3,10 @@ intro-to-nodejs
 
 Code samples for my Intro to Node.js session
 
+For more information on these examples read my blog post: [http://hectorcorrea.com/blog/introduction-to-node-js](http://hectorcorrea.com/blog/introduction-to-node-js)
+
+
+
 Samples
 -------
 List of code samples in the order in which the are introduced during the presentation.
