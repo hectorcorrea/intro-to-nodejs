@@ -25,6 +25,7 @@ app.get('/books/:id', function(req, res){
 app.get("/search", function(req, res) {
   var html = '<p>' + 
     '<form id="search" method="post">' + 
+    '  Enter something: ' +
     '  <input type="text" name="searchText"/>' +
     '  <input type="submit"/>' + 
     '</form>' + 
