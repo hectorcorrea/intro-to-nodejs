@@ -13,7 +13,7 @@ getAll = function(req, res) {
 }
 
 viewOne = function(req, res) {
-  var id = req.params.id;
+  var id = parseInt(req.params.id, 10);
   model.getOne(id, function(err, bookData) {
     if(err) {
       console.log(err);

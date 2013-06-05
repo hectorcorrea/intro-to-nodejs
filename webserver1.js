@@ -12,5 +12,5 @@ var server = http.createServer(function(req, res) {
 
 });
 
-console.log("Listening at " + serverUrl + ":" + port);
+console.log("Listening at http://" + serverUrl + ":" + port);
 server.listen(port, serverUrl);

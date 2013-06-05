@@ -1,6 +1,11 @@
 // Requires MongoDB database installed and running
 // (see http://www.mongodb.org/downloads) plus
 // the mongodb client driver (npm install mongodb)
+//
+// Note that the way I am connecting and disconnecting
+// from the database in this example is NOT the recommended
+// way. This is just to keep the example simple.
+//
 var MongoClient = require('mongodb').MongoClient;
 var dbCollection = "books";
 var dbUrl = "mongodb://localhost:27017/books";

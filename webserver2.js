@@ -26,22 +26,3 @@ var server = http.createServer(function(req, res) {
 
 console.log("Starting web server at " + serverUrl + ":" + port);
 server.listen(port, serverUrl);
-
-
-
-
-
-
-
-// Long delay example
-// if(req.url == "/longdelay.html") {
-//
-//   console.log("Processing long delay...");
-//   setTimeout(function() {
-//     res.setHeader("Content-Type", "text/html");
-//     res.end("<p>Done with long delay. Request counter: <b>" + counter + "</b>.</p>");
-//     console.log("Done with long delay.");
-//   }, 10000);
-//   return;
-//
-// }
