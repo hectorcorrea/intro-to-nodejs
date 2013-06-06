@@ -8,7 +8,7 @@ var app = express();
 var http = require("http");
 var net = require("net");
 var server = http.createServer(app);
-var port = 80;
+var port = 3000;
 var dns = require('dns');
 
 // Log the requests
