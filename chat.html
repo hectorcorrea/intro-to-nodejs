@@ -1,0 +1,57 @@
+<head>
+  <!-- Chat client for socketioDemo.js -->
+  
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript" src="socket.io/socket.io.js"></script>
+  <script type="text/javascript" src="socket.io/socket.io.js"></script>
+
+  <script type="text/javascript">
+
+    var socket = io.connect("/");
+
+    // Prevent HTML injection  
+    var cleanHtml = function(html) {
+      html = html.replace(/</g, '&lt;');
+      html = html.replace(/>/g, '&gt;')
+      return html;
+    };
+
+    // We've received a message
+    socket.on("message", function(data) {
+      var history, html;
+      data = JSON.parse(data);
+      html = cleanHtml(data.message);
+      if(data.type == "myMessage") {
+        html = "<div><b>" + html + "</b></div>";
+      }
+      else {
+        html = "<div>" + html + "</div>";
+      }
+      history = $("#messages").html();
+      $("#messages").html(html + history);
+    });
+
+    // We send a message
+    $(function() {
+      $("#send").click(function() {
+        var text = $("#text").val();
+        var data = {
+          message: text,
+          type: "userMessage"
+        };
+        socket.send(JSON.stringify(data));
+        $("#text").val('');
+      });
+    });
+
+  </script>
+</head>
+
+<h3>Wow, I can't believe he is showing yet another chat demo!</h3>
+
+<p>Say something interesting:</p>
+<input type="text" id="text"></input>
+<input type="button" id="send" value="Send"></input>
+
+<p>Messages</p>
+<div id="messages"></div>
