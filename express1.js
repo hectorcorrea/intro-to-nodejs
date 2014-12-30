@@ -1,8 +1,9 @@
 var express = require('express');
 var app = express();
+var logger = require('morgan');
 
 // Log the requests
-app.use(express.logger('dev'));
+app.use(logger('dev'));
 
 // Serve static files
 app.use(express.static(__dirname)); 
