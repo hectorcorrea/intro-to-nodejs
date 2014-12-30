@@ -1,25 +1,23 @@
 var express = require('express');
 var app = express();
+var logger = require('morgan');
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 var bookRoutes = require('./bookRoutes2');
 
-app.configure(function() {
+app.set('views', __dirname);
+app.set('view engine', 'ejs');
 
-  app.set('views', __dirname);
-  app.set('view engine', 'ejs');
-  
-  app.use(express.logger('dev'));
-  app.use(express.static(__dirname)); 
+app.use(logger('dev'));
+app.use(express.static(__dirname)); 
 
-  app.use(express.bodyParser());
-  app.use(app.router);
-
-});
+app.use(urlencodedParser);
 
 // Book routes
 app.get('/books', bookRoutes.getAll);
 app.get('/books/:id', bookRoutes.viewOne);
 app.get('/search', bookRoutes.search);
-app.post('/search', bookRoutes.searchResults);
+app.post('/search', urlencodedParser, bookRoutes.searchResults);
 
 // Route for everything else
 app.get('*', function(req, res){

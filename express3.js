@@ -1,19 +1,16 @@
 var express = require('express');
 var app = express();
+var logger = require('morgan');
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-app.configure(function() {
+app.set('views', __dirname);
+app.set('view engine', 'ejs');
 
-  app.set('views', __dirname);
-  app.set('view engine', 'ejs');
-  
-  app.use(express.logger('dev'));
-  app.use(express.static(__dirname)); 
+app.use(logger('dev'));
+app.use(express.static(__dirname)); 
 
-  app.use(express.bodyParser());
-  app.use(app.router);
-
-});
-
+app.use(urlencodedParser);
 
 // Define some demo data
 var bookList = [];
@@ -38,7 +35,7 @@ app.get('/search', function(req, res){
 });
 
 // Search form (POST)
-app.post('/search', function(req, res){
+app.post('/search', urlencodedParser, function(req, res){
   var searchText = req.body.searchText;
   res.send("<p>Your search for <b>" + searchText + "</b> returned no results</p>");
 });

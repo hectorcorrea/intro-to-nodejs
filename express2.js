@@ -1,14 +1,17 @@
 var express = require('express');
 var app = express();
+var logger = require('morgan');
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 // Log all requests
-app.use(express.logger('dev'));
+app.use(logger('dev'));
 
 // Serve static files
 app.use(express.static(__dirname)); 
 
 // Parse request body into req.body.*
-app.use(express.bodyParser());
+app.use(urlencodedParser);
 
 // Route for specific URLs
 app.get('/books', function(req, res){
@@ -34,7 +37,7 @@ app.get("/search", function(req, res) {
 });
 
 // Search form (POST)
-app.post("/search", function(req, res) {
+app.post("/search", urlencodedParser, function(req, res) {
   var searchText = req.body.searchText;
   res.send("<p>Your search for <b>" + searchText + "</b> returned no results</p>");
 });
